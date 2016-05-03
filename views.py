@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import	Post
+
 from .models import	Student
 from .models import	Parents
 from django.utils import timezone
@@ -9,9 +9,6 @@ from django import forms
 from .forms import NameForm
 
 
-def	post_list(request):
-	posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-	return render(request, 'blog/post_list.html', {'student': students})
 def	post_list(request):
 	students = Student.objects.all()
 	return render(request, 'blog/post_list.html', {'student': students})
